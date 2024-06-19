@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #170040;
+  --color-primary: #2422a4;
   --color-white: #e9e9e9;
   --color-black: #141d28;
   --color-black-1: #212b38;
@@ -7,25 +7,37 @@
 body {
   font-family: sans-serif;
 }
+/*!!!!!!!!!!!! navbar  !!!!!!!!!!!!!!!!*/
 .navbar {
-  background-color: var(--color-black-1);
+  background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
+  font-family: poppins;
 }
 .logo {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 5px;
+}
+.navbar .logo a {
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 28px;
 }
 .menu ul {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns:
+    minmax(50px, 1.2fr) minmax(50px, 1.4fr) minmax(50px, 0.8fr)
+    minmax(50px, 1.4fr) minmax(50px, 0.8fr);
+  justify-content: center;
+  gap: 0.5em;
   list-style: none;
 }
 .menu ul li {
-  padding: 10px 30px;
+  padding-right: 10px;
   position: relative;
+  text-align: center;
 }
 .menu ul li a {
   color: var(--color-white);
@@ -34,7 +46,7 @@ body {
   transition: all 0.3s;
 }
 .menu ul li a:hover {
-  color: var(--color-primary);
+  color: var(--color-black);
 }
 .school_years_menu {
   display: none;
@@ -76,4 +88,10 @@ body {
 .school_years_menu ul li:hover .years_menu ul li {
   width: 150px;
   padding: 10px;
+}
+
+/*!!!!!!!!!!!! navbar  !!!!!!!!!!!!!!!!*/
+
+p {
+  background-color: rgb(255, 250, 250);
 }
