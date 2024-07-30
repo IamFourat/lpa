@@ -2,16 +2,16 @@ const navbarHTML = `
   <nav class="navbar" >
       <div class="logo">
         <img
-          src="images/club_robotique-removebg-preview.png"
+          src="/images/club_robotique-removebg-preview.png"
           alt="logo of the website"
           width="50px"
         />
-        <a href="index.html">LPA</a>
+        <a href="/index.html">LPA</a>
       </div>
       <div class="menu">
         <ul>
           <li>
-            <a href="about us.html">about us</a>
+            <a href="/about us.html">about us</a>
           </li>
           <li>
             <a href="">school years<i class="fas fa-caret-down"></i></a>
@@ -72,7 +72,36 @@ const navbarHTML = `
           </li>
           <li><a href="">clubs</a></li>
           <li><a href="">time table</a></li>
-          <li><a href="">Exams</a></li>
+          <li>
+            <a href="">exams<i class="fas fa-caret-down"></i></a>
+            <div class="exams_menu">
+              <ul>
+                <li>
+                  <a href="/exams/1ère.html">1st grade</a>
+                </li>
+                <li>
+                  <a href="">2nd grade</a>
+                </li>
+                <li>
+                  <a href="">3rd grade<i class="fas fa-caret-left"></i></a>
+                  <div class="pre_bac">
+                    <ul>
+                      <li><a href="">Math</a></li>
+                      <li><a href="">Science</a></li>
+                      <li><a href="">Technology</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="">4th grade<i class="fas fa-caret-left"></i></a>
+                  <div class="bac">
+                    <ul>
+                      <li><a href="">Math</a></li>
+                      <li><a href="">Science</a></li>
+                      <li><a href="">Technology</a></li>
+                    </ul>
+                  </div>
+                </li>
         </ul>
       </div>
       <div class="search"></div>
