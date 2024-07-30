@@ -11,25 +11,34 @@ body {
 .navbar {
   background-color: var(--color-primary);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-family: poppins;
 }
 .logo {
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 .navbar .logo a {
+  padding-left: 5px;
   text-decoration: none;
-  color: var(--color-black);
+  color: var(--color-white);
   font-size: 28px;
+  font-family: poppins;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+.navbar .logo a:hover {
+  color: var(--color-black);
+  scale: 1.2;
 }
 .menu ul {
   display: grid;
   grid-template-columns:
     minmax(50px, 1.2fr) minmax(50px, 1.4fr) minmax(50px, 0.8fr)
-    minmax(50px, 1.4fr) minmax(50px, 0.8fr);
+    minmax(50px, 1.4fr) minmax(50px, 0.9fr);
   justify-content: center;
   gap: 0.5em;
   list-style: none;
@@ -48,17 +57,20 @@ body {
 .menu ul li a:hover {
   color: var(--color-black);
 }
-.school_years_menu {
+.school_years_menu,
+.exams_menu {
   display: none;
 }
-.menu ul li:hover .school_years_menu {
+.menu ul li:hover .school_years_menu,
+.menu ul li:hover .exams_menu {
   display: block;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
-  background-color: var(--color-black-1);
+  background-color: var(--color-primary);
 }
-.menu ul li:hover .school_years_menu ul {
+.menu ul li:hover .school_years_menu ul,
+.menu ul li:hover .exams_menu ul {
   display: block;
   margin: 10px;
 }
@@ -66,12 +78,18 @@ body {
   width: 150px;
   padding: 10px;
 }
+.menu ul li:hover .exams_menu ul li {
+  width: 50px;
+  padding: 10px;
+}
 .fas {
   float: right;
   margin-left: 10px;
   padding-top: 3px;
 }
-.years_menu {
+.years_menu,
+.pre_bac,
+.bac {
   display: none;
 }
 .school_years_menu ul li:hover .years_menu {
@@ -79,19 +97,161 @@ body {
   position: absolute;
   left: 150px;
   top: 0;
-  background-color: var(--color-black-1);
+  background-color: var(--color-primary);
 }
-.school_years_menu ul li:hover .years_menu ul {
+.exams_menu ul li:hover .pre_bac,
+.exams_menu ul li:hover .bac {
+  display: block;
+  position: absolute;
+  right: 100px;
+  top: 0;
+  background-color: var(--color-primary);
+}
+.school_years_menu ul li:hover .years_menu ul,
+.exams_menu ul li:hover .pre_bac ul,
+.exams_menu ul li:hover .bac ul {
   display: block;
   margin: 10px;
 }
-.school_years_menu ul li:hover .years_menu ul li {
+.school_years_menu ul li:hover .years_menu ul li,
+.exams_menu ul li:hover .pre_bac ul li,
+.exams_menu ul li:hover .bac ul li {
   width: 150px;
   padding: 10px;
 }
 
 /*!!!!!!!!!!!! navbar  !!!!!!!!!!!!!!!!*/
 
+.history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.history img {
+  padding: 10px;
+  padding-right: 40px;
+  width: 200px;
+  height: 200px;
+}
 p {
   background-color: rgb(255, 250, 250);
+}
+
+/* the subject and term dropdown*/
+
+.dropdown_space {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropdown {
+  width: 400px;
+  flex-shrink: 1;
+  position: relative;
+  margin: 2em;
+}
+
+.dropdown * {
+  box-sizing: border-box;
+}
+
+.select {
+  background-color: var(--color-black-1);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #2a2f3b solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.select-clicked {
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0.8em #26489a;
+}
+
+.select:hover {
+  background-color: #323741;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(180deg);
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown_menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background-color: #323741;
+  border: 1px #363a43 solid;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #9fa5b5;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.dropdown_menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.dropdown_menu li:hover {
+  background-color: #2a2d35;
+}
+
+.active {
+  background-color: #23242a;
+}
+
+.dropdown_menu-open {
+  display: block;
+  opacity: 1;
+}
+
+#downloadsContainer {
+  margin: 20px;
+}
+.download-link {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.download-link i {
+  margin-right: 10px;
+}
+.download-link:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
