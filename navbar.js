@@ -2,7 +2,7 @@ const navbarHTML = `
   <nav class="navbar" >
       <div class="logo">
         <img
-          src="/images/club_robotique-removebg-preview.png"
+          src="/images/CRLPA.png"
           alt="logo of the website"
           width="50px"
         />
